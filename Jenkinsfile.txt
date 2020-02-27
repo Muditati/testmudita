@@ -6,12 +6,12 @@ ANYPOINT = credentials('ANYPOINT')
 stages {
    stage ('Build') {
     steps {
-	  sh 'mvn -f mule-jenkins-pipeline/pom.xml clean install'
+	  sh 'mvn clean package'
 	  }
 	  }
-	  stage('Deploy') {
+	  stage('Deploy CloudHub') {
 	  steps {
-	  sh 'mvn -f mule-jenkins-pipeline/pom.xml package deploy -Danypoint.username=muditatiwari -Danypoint.password=Ashish@45'
+	  sh 'mvn clean deploy -P cloudhub -Danypoint.username=muditatiwari -Danypoint.password=Ashish@45'
 	  }
 	  }
 	  }
