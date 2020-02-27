@@ -41,18 +41,8 @@
 				<region>us-east-1</region>
       				<workers>1</workers>
       				<workerType>Micro</workerType>
-   				
-
+				<redeploy>true</redeploy>
 				</configuration>
-	                        <executions>
-        <execution>
-            <id>deploy</id>
-            <phase>deploy</phase>
-            <goals>
-                <goal>deploy</goal>
-            </goals>
-        </execution>
-    </executions>
             </plugin>
 			<plugin>
     <groupId>org.apache.maven.plugins</groupId>
