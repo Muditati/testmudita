@@ -14,7 +14,8 @@
     <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
+                <cloudhub.username>${anypoint.username}</cloudhub.username>
+   		 <cloudhub.password>${anypoint.password}</cloudhub.password>
 		<app.runtime>4.2.2</app.runtime>
 		<mule.maven.plugin.version>3.3.5</mule.maven.plugin.version>
 	</properties>
@@ -31,8 +32,8 @@
 
 				<deploymentType>cloudhub</deploymentType>
       				<uri>https://anypoint.mulesoft.com/</uri>
-				 <username>${anypoint.username}</username>
-      				<password>${anypoint.password}</password>
+				 <username>${cloudhub.username}</username>
+      				<password>${cloudhub.password}</password>
 				<environment>SANDBOX</environment>
 				<applicationName>innerhttp2</applicationName>
       				<muleVersion>4.2.2</muleVersion>
