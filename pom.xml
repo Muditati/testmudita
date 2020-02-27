@@ -29,7 +29,7 @@
 	                       
                                 <configuration>
 
-				<cloudHubDeployment>
+				<deploymentType>cloudhub</deploymentType>
       				<uri>https://anypoint.mulesoft.com/</uri>
 				 <username>${anypoint.username}</username>
       				<password>${anypoint.password}</password>
@@ -40,7 +40,7 @@
 				<region>us-east-1</region>
       				<workers>1</workers>
       				<workerType>Micro</workerType>
-   				</cloudHubDeployment>
+   				
 
 				</configuration>
             </plugin>
