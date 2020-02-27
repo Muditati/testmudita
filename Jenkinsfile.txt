@@ -9,10 +9,5 @@ stages {
 	  sh 'mvn clean package'
 	  }
 	  }
-	  stage('Deploy CloudHub') {
-	  steps {
-	  sh 'mvn clean deploy -P cloudhub -Danypoint.username=muditatiwari -Danypoint.password=Ashish@45'
-	  }
-	  }
 	  }
 	  }
