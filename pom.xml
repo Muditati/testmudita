@@ -4,7 +4,8 @@
 
 	<groupId>570b4291-0ebc-403a-8d83-457d435013c8</groupId>
 	<artifactId>innerhttp1</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-SNAPSHOT</version>
+	
     
 
 	<name>innerhttp2</name>
@@ -13,7 +14,7 @@
     <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-                <packaging>mule-application</packaging>
+
 		<app.runtime>4.2.2</app.runtime>
 		<mule.maven.plugin.version>3.3.5</mule.maven.plugin.version>
 	</properties>
@@ -25,6 +26,7 @@
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
+	                       
                                 <configuration>
 
 				<cloudHubDeployment>
@@ -35,7 +37,7 @@
 				<applicationName>innerhttp2</applicationName>
       				<muleVersion>4.2.2</muleVersion>
       				<businessGroup>Accenture</businessGroup>
-				<region>us-east-2</region>
+				<region>us-east-1</region>
       				<workers>1</workers>
       				<workerType>Micro</workerType>
    				</cloudHubDeployment>
