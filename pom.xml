@@ -5,26 +5,42 @@
 	<groupId>570b4291-0ebc-403a-8d83-457d435013c8</groupId>
 	<artifactId>innerhttp1</artifactId>
     <version>1.0.0</version>
-    <packaging>mule-application</packaging>
+    
 
-	<name>innerhttp1</name>
+	<name>innerhttp2</name>
 
     <description/>
     <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
+                <packaging>mule-application</packaging>
 		<app.runtime>4.2.2</app.runtime>
 		<mule.maven.plugin.version>3.3.5</mule.maven.plugin.version>
 	</properties>
 
 	<build>
 		<plugins>
-			<plugin>
+                        
+<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
-				<extensions>true</extensions>
+                                <configuration>
+
+				<cloudHubDeployment>
+      				<uri>https://anypoint.mulesoft.com/</uri>
+				 <username>${anypoint.username}</username>
+      				<password>${anypoint.password}</password>
+				<environment>SANDBOX</environment>
+				<applicationName>innerhttp2</applicationName>
+      				<muleVersion>4.2.2</muleVersion>
+      				<businessGroup>Accenture</businessGroup>
+				<region>us-east-2</region>
+      				<workers>1</workers>
+      				<workerType>Micro</workerType>
+   				</cloudHubDeployment>
+
+				</configuration>
             </plugin>
 		</plugins>
 	</build>
@@ -74,6 +90,11 @@
                 <enabled>false</enabled>
             </snapshots>
         </pluginRepository>
-    </pluginRepositories>
-
+       </pluginRepositories>
+<distributionManagement>
+        <repository>
+            <id>nexus-credentials</id>
+            <url>http://localhost:8081/repository/Test_Nexus_repository/</url>
+        </repository>
+    </distributionManagement>
 </project>
