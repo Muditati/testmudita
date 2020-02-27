@@ -12,9 +12,11 @@ stages {
 	  }
 	  }
 	  stage('Deploy') {
+	  steps {
+	  withMaven (maven: 'maven'){
 	  sh 'mvn -f mule-jenkins-pipeline/pom.xml package deploy -Danypoint.username=muditatiwari -Danypoint.password=Ashish@45'
 	  }
 	  }
 	  }
-	  
-	  
+	  }
+	  } 
