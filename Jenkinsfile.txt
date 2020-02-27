@@ -6,7 +6,8 @@ ANYPOINT = credentials('ANYPOINT')
 stages {
    stage ('Build') {
     steps {
-	  sh 'mvn clean package'
+	  echo 'Hello, Maven'
+                sh 'mvn --version'
 	  }
 	  }
 	  }
