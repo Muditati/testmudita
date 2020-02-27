@@ -1,12 +1,20 @@
-pipeline {
-   agent any
-
-   stages {
-      stage('Hello') {
-         steps {
-            echo 'Hello World'
-         }
-      }
-   }
+ pipeline{
+agent any
+environment {
+ANYPOINT = credentials('ANYPOINT')
 }
+stages {
+   stage ('Build') {
+    steps {
+	echo 'Hello World'
+	bat 'mvn clean package'
+}
+	  }
+	  stage('Deploy CloudHub') {
+	  steps {
+	  bat 'mvn clean deploy -P cloudhub -Danypoint.username=muditatiwari -Danypoint.password=Ashish@45'
+	  }
+	  }
+	  }
+	  }
 
