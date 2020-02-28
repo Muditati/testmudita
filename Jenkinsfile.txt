@@ -1,4 +1,4 @@
-  pipeline{
+   pipeline{
 agent any
 environment {
 DEPLOY_CREDS = credentials('ANYPOINT')
@@ -16,9 +16,7 @@ stages {
         APP_NAME = 'innerhttp2'
       }
 	  steps {
-           bat 'mvn -U -V -e -B -DskipTests deploy -DmuleDeploy 
-         -Danypoint.username="%DEPLOY_CREDS_USR%" 
-         -Danypoint.password="%DEPLOY_CREDS_PSW%"'
+           bat 'mvn -U -V -e -B -DskipTests deploy -DmuleDeploy -Danypoint.username="%DEPLOY_CREDS_USR%" -Danypoint.password="%DEPLOY_CREDS_PSW%"'
 	  }
 	  }
 	  }
