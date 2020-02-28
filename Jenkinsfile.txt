@@ -1,20 +1,25 @@
- pipeline{
+  pipeline{
 agent any
 environment {
-ANYPOINT = credentials('ANYPOINT')
+DEPLOY_CREDS = credentials('ANYPOINT')
 }
 stages {
    stage ('Build') {
     steps {
 	echo 'Hello World'
-	bat 'mvn clean package'
+	bat 'mvn -B -U -e -V clean -DskipTests package'
 }
 	  }
 	  stage('Deploy CloudHub') {
+	environment {
+        ENVIRONMENT = 'Sandbox'
+        APP_NAME = 'innerhttp2'
+      }
 	  steps {
-	  bat 'mvn clean deploy -P cloudhub -Danypoint.username=muditatiwari -Danypoint.password=Ashish@45'
+           bat 'mvn -U -V -e -B -DskipTests deploy -DmuleDeploy 
+         -Danypoint.username="%DEPLOY_CREDS_USR%" 
+         -Danypoint.password="%DEPLOY_CREDS_PSW%"'
 	  }
 	  }
 	  }
 	  }
-
