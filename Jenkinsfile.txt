@@ -24,7 +24,7 @@ stages {
             script {
 			        if (env.BRANCH_NAME == 'master')
                     echo "Triggering job for branch ${env.BRANCH_NAME}"
-                    build job: "muditati/Mulesoft_repository/master/dummy_job"
+                    build job: "muditati/Mulesoft_repository/master"
             }
         }
     }
