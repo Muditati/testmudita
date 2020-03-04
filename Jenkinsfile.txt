@@ -1,4 +1,4 @@
-pipeline{
+	  pipeline{
 agent any
 environment {
 DEPLOY_CREDS = credentials('ANYPOINT')
@@ -19,10 +19,8 @@ stages {
            bat 'mvn -U -V -e -B -DskipTests deploy -DmuleDeploy -Danypoint.username="%DEPLOY_CREDS_USR%" -Danypoint.password="%DEPLOY_CREDS_PSW%"'
 	  }
 	  }
-	   stage('Trigger another Job Build') {
-	  environment {
-		DEPLOY_CREDS = credentials('SCM')
-}        steps {
+	   stage('Trigger Branch Build') {
+      steps {
             script {
 			        if (env.BRANCH_NAME == 'master')
                     echo "Triggering job for branch ${env.BRANCH_NAME}"
@@ -32,4 +30,5 @@ stages {
     }
 	  }
 	  }
+
 
