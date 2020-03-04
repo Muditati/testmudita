@@ -1,4 +1,4 @@
-   pipeline{
+pipeline{
 agent any
 environment {
 DEPLOY_CREDS = credentials('ANYPOINT')
@@ -19,5 +19,13 @@ stages {
            bat 'mvn -U -V -e -B -DskipTests deploy -DmuleDeploy -Danypoint.username="%DEPLOY_CREDS_USR%" -Danypoint.password="%DEPLOY_CREDS_PSW%"'
 	  }
 	  }
-	  }
+	  stage('Trigger Build of another job') {
+        steps {
+            script {
+			        if (env.BRANCH_NAME == 'master')
+                    echo "Triggering job for branch ${env.BRANCH_NAME}"
+                    build job: "mudita.ti/Mulesoft_repository/master/dummy_job"
+            }
+        }
+    }
 	  }
