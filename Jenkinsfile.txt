@@ -28,6 +28,18 @@ stages {
             }
         }
     }
+    stage('Trigger Pipeline build') {
+      steps {
+            script {
+			        if (env.BRANCH_NAME == 'master')
+                    echo "Triggering job for branch ${env.BRANCH_NAME}"
+                    build 'deploy_dummy1_using_pipeline'
+            }
+        }
+    }
+	  }
+	  }
+
 	  }
 	  }
 
